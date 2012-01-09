@@ -1,0 +1,9 @@
+{
+    "name": "WebProxy",
+    "version": "0.0.0",
+    "app": {
+        "launch": {
+            "local_path": "main.html"
+        }
+    }
+}
