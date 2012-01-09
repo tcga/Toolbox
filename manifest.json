@@ -9,5 +9,8 @@
     },
     "permissions": [
         "https://tcga-data.nci.nih.gov/tcgafiles/ftp_auth/distro_ftpusers/anonymous/tumor/*"
-    ]
+    ],
+    "icons": {
+        "128": "icon_128.png"
+    }
 }
