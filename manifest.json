@@ -1,6 +1,6 @@
 {
-    "name": "WebProxy",
-    "description": "Enjoy cross-domain calls—at least in a dedicated tab.",
+    "name": "TCGA Toolbox",
+    "description": "A collection of tools to process and analyze files from TCGA's open-access HTTP directory directly in the browser.",
     "version": "0.1.0",
     "app": {
         "launch": {
