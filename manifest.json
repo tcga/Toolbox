@@ -1,7 +1,7 @@
 {
     "name": "WebProxy",
     "description": "Enjoy cross-domain calls—at least in a dedicated tab.",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "app": {
         "launch": {
             "local_path": "main.html"
