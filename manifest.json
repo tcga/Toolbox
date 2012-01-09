@@ -5,5 +5,8 @@
         "launch": {
             "local_path": "main.html"
         }
-    }
+    },
+    "permissions": [
+        "*://*/*"
+    ]
 }
