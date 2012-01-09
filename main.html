@@ -5,12 +5,14 @@
         <title></title>
     </head>
     <body>
-        <h1>WebProxy</h1>
+        <h1>TCGA Tools</h1>
+        <p>This is a work in progress. More tools will be integrated soon.</p>
+        <h2>Request data</h2>
         <p>
-            Here is a template to make cross-domain calls for you:<br />
+            This template should be a starting point to request data from TCGA, e.g. <a href="https://tcga-data.nci.nih.gov/tcgafiles/ftp_auth/distro_ftpusers/anonymous/tumor/gbm/cgcc/mskcc.org/hg-cgh-244a/cna/mskcc.org_GBM.HG-CGH-244A.Level_3.26.1.0/MSK_251469369165_S01_CGH-v4_10_27Aug08__GCN_V3_A1__CBS_out.txt">some CNA data</a>:<br />
             <pre>
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://example.org");
+xhr.open("GET", "https://tcga-data.nci.nih.gov/tcgafiles/ftp_auth/distro_ftpusers/anonymous/tumor/gbm/cgcc/mskcc.org/hg-cgh-244a/cna/mskcc.org_GBM.HG-CGH-244A.Level_3.26.1.0/MSK_251469369165_S01_CGH-v4_10_27Aug08__GCN_V3_A1__CBS_out.txt");
 xhr.onload = function () {
     if (xhr.status === 200) {
         console.log(xhr.responseText);
@@ -21,5 +23,12 @@ xhr.onload = function () {
 xhr.send(null);
             </pre>
         </p>
+        <hr />
+        <footer>
+            University of Alabama at Birmingham<br />
+            Division of Informatics<br />
+            Department of Pathology<br />
+            <a href="http://uab.mathbiol.org/informatics">http://uab.mathbiol.org/informatics</a>
+        </footer>
     </body>
 </html>
