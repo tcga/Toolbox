@@ -3,32 +3,27 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>TCGA Toolbox</title>
+        <link rel="stylesheet" href="bootstrap.css" />
+        <link rel="stylesheet" href="main.css" />
     </head>
     <body>
-        <h1>TCGA Tools</h1>
-        <p>This is a <a href="https://github.com/tcga/web-toolbox">work in progress</a>. More tools will be integrated soon.</p>
-        <h2>Request data</h2>
-        <p>
-            This template should be a starting point to request data from TCGA, e.g. <a href="https://tcga-data.nci.nih.gov/tcgafiles/ftp_auth/distro_ftpusers/anonymous/tumor/gbm/cgcc/mskcc.org/hg-cgh-244a/cna/mskcc.org_GBM.HG-CGH-244A.Level_3.26.1.0/MSK_251469369165_S01_CGH-v4_10_27Aug08__GCN_V3_A1__CBS_out.txt">some CNA data</a>:<br />
-            <pre>
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "https://tcga-data.nci.nih.gov/tcgafiles/ftp_auth/distro_ftpusers/anonymous/tumor/gbm/cgcc/mskcc.org/hg-cgh-244a/cna/mskcc.org_GBM.HG-CGH-244A.Level_3.26.1.0/MSK_251469369165_S01_CGH-v4_10_27Aug08__GCN_V3_A1__CBS_out.txt");
-xhr.onload = function () {
-    if (xhr.status === 200) {
-        console.log(xhr.responseText);
-    } else {
-        console.error(xhr.status);
-    }
-};
-xhr.send(null);
-            </pre>
-        </p>
-        <hr />
-        <footer>
-            University of Alabama at Birmingham<br />
-            Division of Informatics<br />
-            Department of Pathology<br />
-            <a href="http://uab.mathbiol.org/informatics">http://uab.mathbiol.org/informatics</a>
-        </footer>
+        <div class="container">
+            <h1>TCGA Toolbox</h1>
+            <p>TCGA Toolbox provides a scripting environment to access, process, and analyze data from <a href="http://cancergenome.nih.gov/">TCGA</a> in the browser. It differs from other web apps in that the main interaction happens in the <a href="http://code.google.com/chrome/devtools/docs/overview.html">JavaScript Console</a>. The base app can be extended by loading remote scripts.</p>
+            <p>This is a work in progress. The code is hosted on <a href="https://github.com/tcga/web-toolbox">GitHub</a>.</p>
+            <h2>Tools</h2>
+            <p>The tools are organized in the global TCGA namespace. The first argument of a callback function is reserved for an error object.</p>
+            <h3>Load scripts</h3>
+            <code>TCGA.loadScript(url, callback)</code>
+            <h3>Get data</h3>
+            <code>TCGA.get(url, callback)</code>
+            <footer>
+                University of Alabama at Birmingham<br />
+                Division of Informatics<br />
+                Department of Pathology<br />
+                <a href="http://uab.mathbiol.org/informatics">http://uab.mathbiol.org/informatics</a>
+            </footer>
+        </div>
+        <script src="lib/tcga.js"></script>
     </body>
 </html>
