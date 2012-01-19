@@ -1,21 +1,21 @@
 describe("TCGA", function () {
     describe("loadScript", function () {
-        it("throws if uri is undefined", function () {
+        it("should throw if uri is undefined", function () {
             expect(function () {
                 TCGA.loadScript();
             }).toThrow(new Error("Please provide a uri parameter [string]."));
         });
-        it("throws if uri is not a string", function () {
+        it("should throw if uri is not a string", function () {
             expect(function () {
                 TCGA.loadScript(4711);
             }).toThrow(new Error("Please provide a uri parameter [string]."));
         });
-        it("throws if callback is not a function", function () {
+        it("should throw if callback is not a function", function () {
             expect(function () {
                 TCGA.loadScript("http://tcga.github.com", 4711);
             }).toThrow(new Error("Please provide a callback parameter [function]."));
         });
-        it("fails if the URI is invalid", function () {
+        it("should fail if the URI is invalid", function () {
             var callback;
             callback = jasmine.createSpy();
             TCGA.loadScript("ptth://asdf", callback);
@@ -31,27 +31,27 @@ describe("TCGA", function () {
         });
     });
     describe("get", function () {
-        it("throws if uri is undefined", function () {
+        it("should throw if uri is undefined", function () {
             expect(function () {
                 TCGA.get();
             }).toThrow(new Error("Please provide a uri parameter [string]."));
         });
-        it("throws if uri is not a string", function () {
+        it("should throw if uri is not a string", function () {
             expect(function () {
                 TCGA.get(4711);
             }).toThrow(new Error("Please provide a uri parameter [string]."));
         });
-        it("throws if callback is undefined", function () {
+        it("should throw if callback is undefined", function () {
             expect(function () {
                 TCGA.get("http://tcga.github.com");
             }).toThrow(new Error("Please provide a callback parameter [function]."));
         });
-        it("throws if callback is not a function", function () {
+        it("should throw if callback is not a function", function () {
             expect(function () {
                 TCGA.get("http://tcga.github.com", 4711);
             }).toThrow(new Error("Please provide a callback parameter [function]."));
         });
-        it("fails if the URI does not point to TCGA", function () {
+        it("should fail if the URI does not point to TCGA", function () {
             var callback;
             callback = jasmine.createSpy();
             TCGA.get("http://tcga.github.com", callback);
@@ -65,7 +65,7 @@ describe("TCGA", function () {
                 }, null);
             });
         });
-        it("passes if the URI points to TCGA", function () {
+        it("should pass if the URI points to TCGA", function () {
             var callback;
             callback = jasmine.createSpy();
             TCGA.get("https://tcga-data.nci.nih.gov/tcgafiles/ftp_auth/distro_ftpusers/anonymous/tumor/", callback);
@@ -79,7 +79,7 @@ describe("TCGA", function () {
                 }, null);
             });
         });
-        it("fails if the URI points to TCGA, but cannot be found", function () {
+        it("should fail if the URI points to TCGA, but cannot be found", function () {
             var callback;
             callback = jasmine.createSpy();
             TCGA.get("https://tcga-data.nci.nih.gov/tcgafiles/ftp_auth/distro_ftpusers/anonymous/tumor/mostCertainlyA404!", callback);
