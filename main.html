@@ -11,6 +11,11 @@
             <h1>TCGA Toolbox</h1>
             <p>TCGA Toolbox provides a scripting environment to access, process, and analyze data from <a href="http://cancergenome.nih.gov/">TCGA</a> in the browser. It differs from other web apps in that the main interaction happens in the <a href="http://code.google.com/chrome/devtools/docs/overview.html">JavaScript Console</a>. The base app can be extended by loading remote scripts.</p>
             <p>This is a work in progress. The code is hosted on <a href="https://github.com/tcga/web-toolbox">GitHub</a>.</p>
+            <h2>Load module</h2>
+            <div id="module-loader">
+                <input type="text" />
+                <button class="btn">Load module</button>
+            </div>
             <h2>Tools</h2>
             <p>The tools are organized in the global TCGA namespace. The first argument of a callback function is reserved for an error object.</p>
             <h3>Load scripts</h3>
@@ -27,5 +32,20 @@
             </footer>
         </div>
         <script src="lib/tcga.js"></script>
+        <script>
+            document.querySelector("#module-loader button").addEventListener("click", function (event) {
+                var inputBox;
+                event.preventDefault();
+                inputBox = document.querySelector("#module-loader input");
+                console.log(inputBox);
+                TCGA.loadScript(inputBox.value, function (err) {
+                    if (err) {
+                        alert("Script loading failed.");
+                    } else {
+                        inputBox.value = "";
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
