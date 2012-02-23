@@ -9,12 +9,25 @@
     <body>
         <div class="container">
             <h1>TCGA Toolbox</h1>
-            <p>TCGA Toolbox provides a scripting environment to access, process, and analyze data from <a href="http://cancergenome.nih.gov/">TCGA</a> in the browser. It differs from other web apps in that the main interaction happens in the <a href="http://code.google.com/chrome/devtools/docs/overview.html">JavaScript Console</a>. The base app can be extended by loading remote scripts.</p>
+            <p>TCGA Toolbox provides a scripting environment to access, process, and analyze data from <a href="http://cancergenome.nih.gov/">TCGA</a> in the browser. It differs from other web apps in that the main interaction happens in the <a href="http://code.google.com/chrome/devtools/docs/overview.html">JavaScript Console</a>.</p>
             <p>This is a work in progress. The code is hosted on <a href="https://github.com/tcga/web-toolbox">GitHub</a>.</p>
-            <h2>Load module</h2>
-            <div id="module-loader">
-                <input type="text" />
-                <button class="btn">Load module</button>
+            <h2>Modules</h2>
+            <p>TCGA Toolbox can be extended by loading remote scripts &ndash; either by specifying the URL or by selecting one from our trusted authors.</p>
+            <h3>Load module by URL</h3>
+            <div>
+                <form id="url-module-loader">
+                    <input type="text" />
+                    <button class="btn">Load module</button>
+                </form>
+            </div>
+            <h3>Load module by author</h3>
+            <div>
+                <form id="list-module-loader">
+                    <select class="authors">
+                        <option disabled="disabled">Select author ...</option>
+                        <option value="http://tcga.github.com/authors/jalmeida.json">Jonas Almeida</option>
+                    </select>
+                </form>
             </div>
             <h2>Tools</h2>
             <p>The tools are organized in the global TCGA namespace. The first argument of a callback function is reserved for an error object.</p>

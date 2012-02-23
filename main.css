@@ -5,3 +5,7 @@ h1 {
 #module-loader {
     margin-bottom: 9px;
 }
+
+#module-details {
+    display: inline;
+}
