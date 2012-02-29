@@ -15,14 +15,14 @@
             <p>TCGA Toolbox can be extended by loading remote scripts &ndash; either by specifying the URL or by selecting one from our trusted authors.</p>
             <h3>Load module by URL</h3>
             <div>
-                <form id="url-module-loader">
+                <form id="url-module-loader" class="form-inline">
                     <input type="text" />
                     <button class="btn">Load module</button>
                 </form>
             </div>
             <h3>Load module by author</h3>
             <div>
-                <form id="list-module-loader">
+                <form id="list-module-loader" class="form-inline">
                     <select class="authors">
                         <option disabled="disabled">Select author ...</option>
                         <option value="http://tcga.github.com/authors/jalmeida.json">Jonas Almeida</option>
@@ -36,8 +36,9 @@
             <h3>Get data</h3>
             <code>TCGA.get(url, callback)</code>
             <br />
+            <br />
             <code>TCGA.getRange(url, startByte, endByte, callback)</code>
-            <footer>
+            <footer class="footer">
                 University of Alabama at Birmingham<br />
                 Division of Informatics<br />
                 Department of Pathology<br />

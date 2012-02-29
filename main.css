@@ -9,3 +9,9 @@ h1 {
 #module-details {
     display: inline;
 }
+
+.footer {
+margin-top: 45px;
+padding: 35px 0 36px;
+border-top: 1px solid #E5E5E5;
+}
