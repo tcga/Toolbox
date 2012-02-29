@@ -51,20 +51,6 @@ describe("TCGA", function () {
                 TCGA.get("http://tcga.github.com", 4711);
             }).toThrow(new Error("Please provide a callback parameter [function]."));
         });
-        it("should fail if the given URI does not point to TCGA", function () {
-            var callback;
-            callback = jasmine.createSpy();
-            TCGA.get("http://tcga.github.com", callback);
-            waitsFor(function () {
-                return callback.callCount > 0;
-            });
-            runs(function () {
-                expect(callback).toHaveBeenCalledWith({
-                    name: "Error",
-                    message: "Getting the URI failed. The browser log might have more details."
-                }, null);
-            });
-        });
         it("should pass if the given URI points to TCGA", function () {
             var callback;
             callback = jasmine.createSpy();
