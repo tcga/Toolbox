@@ -7,42 +7,69 @@
         <link rel="stylesheet" href="css/main.css" />
     </head>
     <body>
-        <div class="container">
-            <h1>TCGA Toolbox</h1>
-            <p>TCGA Toolbox provides a scripting environment to access, process, and analyze data from <a href="http://cancergenome.nih.gov/">TCGA</a> in the browser. It differs from other web apps in that the main interaction happens in the <a href="http://code.google.com/chrome/devtools/docs/overview.html">JavaScript Console</a>.</p>
-            <p>This is a work in progress. The code is hosted on <a href="https://github.com/tcga/web-toolbox">GitHub</a>.</p>
-            <h2>Modules</h2>
-            <p>TCGA Toolbox can be extended by loading remote scripts &ndash; either by specifying the URL or by selecting one from our trusted authors.</p>
-            <h3>Load module by URL</h3>
-            <div>
-                <form id="url-module-loader" class="form-inline">
-                    <input type="text" value="http://localhost:8080/Repos/TCGApps/tcgapp.js"/>
-                    <button class="btn">Load module</button>
-                </form>
+
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+              <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="#">TCGA Toolbox</a>
+                <div class="nav-collapse">
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+                    <li><a href="#modules" data-toggle="tab">Modules</a></li>
+                    <li><a href="#docs" data-toggle="tab">Documentation</a></li>
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
             </div>
-            <h3>Load module by author</h3>
-            <div>
-                <form id="list-module-loader" class="form-inline">
-                    <select class="authors">
-                        <option disabled="disabled">Select author ...</option>
-                        <option value="http://tcga.github.com/authors/jalmeida.json">Jonas Almeida</option>
-                        <option value="http://lmat.googlecode.com/hg/Lmat.js">Helena Deus</option>
-                    </select>
-                </form>
+        </div>
+
+        <div class="container tab-content">
+            <div class="hero-unit tab-pane active" id="home">
+                <h1>TCGA Toolbox</h1>
+                <p>TCGA Toolbox provides a scripting environment to access, process, and analyze data from <a href="http://cancergenome.nih.gov/">TCGA</a> in the browser. It differs from other web apps in that the main interaction happens in the <a href="http://code.google.com/chrome/devtools/docs/overview.html">JavaScript Console</a>.</p>
+                <p>This is a work in progress. The code is hosted on <a href="https://github.com/tcga/web-toolbox">GitHub</a>.</p>
             </div>
-            <h2>Tools</h2>
-            <p>The tools are organized in the global TCGA namespace. The first argument of a callback function is reserved for an error object.</p>
-            <h3>Load scripts</h3>
-            <p>
-                <code>TCGA.loadScript(url, callback)</code>
-            </p>
-            <h3>Get data</h3>
-            <p>
-                <code>TCGA.get(url, callback)</code>
-            </p>
-            <p>
-                <code>TCGA.getRange(url, startByte, endByte, callback)</code>
-            </p>
+            <div id="modules" class="tab-pane">
+                <h2>Modules</h2>
+                <p>TCGA Toolbox can be extended by loading remote scripts &ndash; either by specifying the URL or by selecting one from our trusted authors.</p>
+                <h3>Load module by URL</h3>
+                <div>
+                    <form id="url-module-loader" class="form-inline">
+                        <input type="text" value="http://localhost:8080/Repos/TCGApps/tcgapp.js"/>
+                        <button class="btn">Load module</button>
+                    </form>
+                </div>
+                <h3>Load module by author</h3>
+                <div>
+                    <form id="list-module-loader" class="form-inline">
+                        <select class="authors">
+                            <option disabled="disabled">Select author ...</option>
+                            <option value="http://tcga.github.com/authors/jalmeida.json">Jonas Almeida</option>
+                            <option value="http://lmat.googlecode.com/hg/Lmat.js">Helena Deus</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+            <div id="docs" class="tab-pane">
+                <h2>Tools</h2>
+                <p>The tools are organized in the global TCGA namespace. The first argument of a callback function is reserved for an error object.</p>
+                <h3>Load scripts</h3>
+                <p>
+                    <code>TCGA.loadScript(url, callback)</code>
+                </p>
+                <h3>Get data</h3>
+                <p>
+                    <code>TCGA.get(url, callback)</code>
+                </p>
+                <p>
+                    <code>TCGA.getRange(url, startByte, endByte, callback)</code>
+                </p>
+            </div>
             <hr />
             <footer>
                 <p>
@@ -56,5 +83,12 @@
         <script src="lib/toType.js"></script>
         <script src="lib/tcga.js"></script>
         <script src="lib/loader.js"></script>
+        <script src="lib/jquery.js"></script>
+        <script src="lib/bootstrap.js"></script>
+        <script>
+            $(function () {
+                $('.tabs a:last').tab('show')
+              })
+        </script>
     </body>
 </html>
