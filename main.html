@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="container tab-content">
+        <div id="main" class="container tab-content">
             <div class="hero-unit tab-pane active" id="home">
                 <h1>TCGA Toolbox</h1>
                 <p>TCGA Toolbox provides a scripting environment to access, process, and analyze data from <a href="http://cancergenome.nih.gov/">TCGA</a> in the browser. It differs from other web apps in that the main interaction happens in the <a href="http://code.google.com/chrome/devtools/docs/overview.html">JavaScript Console</a>.</p>
@@ -70,7 +70,7 @@
                     <code>TCGA.getRange(url, startByte, endByte, callback)</code>
                 </p>
             </div>
-            <hr />
+            <hr id="end-of-content" />
             <footer>
                 <p>
                     University of Alabama at Birmingham<br />
@@ -85,10 +85,5 @@
         <script src="lib/loader.js"></script>
         <script src="lib/jquery.js"></script>
         <script src="lib/bootstrap.js"></script>
-        <script>
-            $(function () {
-                $('.tabs a:last').tab('show')
-              })
-        </script>
     </body>
 </html>
