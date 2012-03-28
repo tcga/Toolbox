@@ -5,7 +5,7 @@ describe("TCGA", function () {
                 TCGA.loadScript();
             }).toThrow(new Error("Please provide a uri parameter [string]."));
         });
-        it("should throw if 'uri' is not a string", function () {
+        it("should throw if 'uri' is not a string or array of strings", function () {
             expect(function () {
                 TCGA.loadScript(4711);
             }).toThrow(new Error("Please provide a uri parameter [string]."));
@@ -28,6 +28,11 @@ describe("TCGA", function () {
                     message: "Loading the script failed. The browser log might have more details."
                 });
             });
+        });
+        it("should not throw if 'uri' in an array of strings", function () {
+          expect(function () {
+            TCGA.loadScript(["http://tcga.github.com", "http://tcga.github.com"], function () {});
+          }).not.toThrow();
         });
     });
     describe("get", function () {
