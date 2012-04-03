@@ -13,7 +13,10 @@ body {
 }
 
 /* Remove tab borders in the navbar */
-.navbar .nav-tabs, .navbar .nav-tabs > .active > a, .navbar .nav-tabs > .active > a:hover, .nav-tabs > li > a:hover{
+.navbar .nav-tabs,
+.navbar .nav-tabs > .active > a,
+.navbar .nav-tabs > .active > a:hover,
+.nav-tabs > li > a:hover {
     border: none;
 }
 
