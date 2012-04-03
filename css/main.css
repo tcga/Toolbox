@@ -11,12 +11,3 @@ body {
     margin-left: 5px;
     margin-right: 5px;
 }
-
-/* Remove tab borders in the navbar */
-.navbar .nav-tabs,
-.navbar .nav-tabs > .active > a,
-.navbar .nav-tabs > .active > a:hover,
-.nav-tabs > li > a:hover {
-    border: none;
-}
-
