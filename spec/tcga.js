@@ -3,17 +3,17 @@ describe("TCGA", function () {
         it("should throw if 'uri' is undefined", function () {
             expect(function () {
                 TCGA.loadScript();
-            }).toThrow(new Error("Please provide a uri parameter [string]."));
+            }).toThrow(new Error("Please provide a uri parameter (string or [string])."));
         });
         it("should throw if 'uri' is not a string or array of strings", function () {
             expect(function () {
                 TCGA.loadScript(4711);
-            }).toThrow(new Error("Please provide a uri parameter [string]."));
+            }).toThrow(new Error("Please provide a uri parameter (string or [string])."));
         });
         it("should throw if 'callback' is not a function", function () {
             expect(function () {
                 TCGA.loadScript("http://tcga.github.com", 4711);
-            }).toThrow(new Error("Please provide a callback parameter [function]."));
+            }).toThrow(new Error("Please provide a callback parameter (function)."));
         });
         it("should fail if the given URI is invalid", function () {
             var callback;
@@ -29,7 +29,7 @@ describe("TCGA", function () {
                 });
             });
         });
-        it("should not throw if 'uri' in an array of strings", function () {
+        it("should not throw if 'uri' is an array of strings", function () {
           expect(function () {
             TCGA.loadScript(["http://tcga.github.com", "http://tcga.github.com"], function () {});
           }).not.toThrow();
@@ -39,22 +39,22 @@ describe("TCGA", function () {
         it("should throw if 'uri' is undefined", function () {
             expect(function () {
                 TCGA.get();
-            }).toThrow(new Error("Please provide a uri parameter [string]."));
+            }).toThrow(new Error("Please provide a uri parameter (string or [string])."));
         });
         it("should throw if 'uri' is not a string", function () {
             expect(function () {
                 TCGA.get(4711);
-            }).toThrow(new Error("Please provide a uri parameter [string]."));
+            }).toThrow(new Error("Please provide a uri parameter (string or [string])."));
         });
         it("should throw if 'callback' is undefined", function () {
             expect(function () {
                 TCGA.get("http://tcga.github.com");
-            }).toThrow(new Error("Please provide a callback parameter [function]."));
+            }).toThrow(new Error("Please provide a callback parameter (function)."));
         });
         it("should throw if 'callback' is not a function", function () {
             expect(function () {
                 TCGA.get("http://tcga.github.com", 4711);
-            }).toThrow(new Error("Please provide a callback parameter [function]."));
+            }).toThrow(new Error("Please provide a callback parameter (function)."));
         });
         it("should pass if the given URI points to TCGA", function () {
             var callback;
