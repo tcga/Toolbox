@@ -28,16 +28,16 @@
                 <p>This is a work in progress. The code is hosted on <a href="https://github.com/tcga/web-toolbox">GitHub</a>.</p>
             </div>
             <div id="modules" class="tab-pane">
-                <h2>Modules</h2>
+                <h1>Modules</h1>
                 <p>TCGA Toolbox can be extended by loading remote scripts &ndash; either by specifying the URL or by selecting one from our trusted authors.</p>
-                <h3>Load module by URL</h3>
+                <h2>Load module by URL</h2>
                 <div>
                     <form id="url-module-loader" class="form-inline">
                         <input type="text" placeholder="URL of the module as Javascript" />
                         <button class="btn">Load module</button>
                     </form>
                 </div>
-                <h3>Load module by author</h3>
+                <h2>Load module by author</h2>
                 <div>
                     <form id="list-module-loader" class="form-inline">
                         <select class="authors">
@@ -50,8 +50,9 @@
                 </div>
             </div>
             <div id="docs" class="tab-pane">
-                <h2>Tools</h2>
-                <p>The tools are organized in the global TCGA namespace. The first argument of a callback function is reserved for an error object.</p>
+                <h1>Documentation</h1>
+                <p>Everything in the TCGA Toolbox is scoped under the global <code>TCGA</code> namespace. The first argument of a callback function is reserved for an error object.</p>
+                <h2>For end users</h2>
                 <h3>Load scripts</h3>
                 <p>
                     <code>TCGA.loadScript(url, callback)</code>
@@ -62,6 +63,11 @@
                 </p>
                 <p>
                     <code>TCGA.getRange(url, startByte, endByte, callback)</code>
+                </p>
+                <h2>For script authors</h2>
+                <h3>Register tab in main menu</h3>
+                <p>
+                    <code>TCGA.registerTab(name, title, contents)</code>
                 </p>
             </div>
             <hr id="end-of-content" />
