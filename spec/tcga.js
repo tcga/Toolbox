@@ -26,13 +26,13 @@ describe("TCGA", function () {
                 expect(callback).toHaveBeenCalledWith({
                     name: "Error",
                     message: "Loading the script failed. The browser log might have more details."
-                });
+                }, []);
             });
         });
         it("should not throw if 'uri' is an array of strings", function () {
-          expect(function () {
-            TCGA.loadScript(["http://tcga.github.com", "http://tcga.github.com"], function () {});
-          }).not.toThrow();
+            expect(function () {
+                TCGA.loadScript(["http://tcga.github.com", "http://tcga.github.com"], function () {});
+            }).not.toThrow();
         });
     });
     describe("get", function () {
