@@ -39,12 +39,12 @@ describe("TCGA", function () {
         it("should throw if 'uri' is undefined", function () {
             expect(function () {
                 TCGA.get();
-            }).toThrow(new Error("Please provide a uri parameter (string or [string])."));
+            }).toThrow(new Error("Please provide an options.uri parameter (string)."));
         });
         it("should throw if 'uri' is not a string", function () {
             expect(function () {
                 TCGA.get(4711);
-            }).toThrow(new Error("Please provide a uri parameter (string or [string])."));
+            }).toThrow(new Error("Please provide an options.uri parameter (string)."));
         });
         it("should throw if 'callback' is undefined", function () {
             expect(function () {
