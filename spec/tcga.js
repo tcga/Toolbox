@@ -85,4 +85,160 @@ describe("TCGA", function () {
             });
         });
     });
+    describe("data", function () {
+        beforeEach(function () {
+         // TODO: Fix race condition.
+            TCGA.data.clear(function () {});
+        });
+        describe("set", function () {
+            it("should persist a key", function () {
+                var callback;
+                callback = jasmine.createSpy();
+                TCGA.data.set("test", "test", function (err) {
+                    TCGA.data.exists("test", callback);
+                });
+                waitsFor(function () {
+                    return callback.callCount > 0;
+                });
+                runs(function () {
+                    expect(callback).toHaveBeenCalledWith(null, true);
+                });
+            });
+            it("should retain the type of a string value", function () {
+                var callback;
+                callback = jasmine.createSpy();
+                TCGA.data.set("test", "This is a string.", function (err) {
+                    TCGA.data.get("test", callback);
+                });
+                waitsFor(function () {
+                    return callback.callCount > 0;
+                });
+                runs(function () {
+                    expect(callback).toHaveBeenCalledWith(null, "This is a string.");
+                });
+            });
+            it("should retain the type of a number value", function () {
+                var callback;
+                callback = jasmine.createSpy();
+                TCGA.data.set("test", 4311, function (err) {
+                    TCGA.data.get("test", callback);
+                });
+                waitsFor(function () {
+                    return callback.callCount > 0;
+                });
+                runs(function () {
+                    expect(callback).toHaveBeenCalledWith(null, 4311);
+                });
+            });
+            it("should retain the type of an object value", function () {
+                var callback;
+                callback = jasmine.createSpy();
+                TCGA.data.set("test", {"a": 1, "b": "two"}, function (err) {
+                    TCGA.data.get("test", callback);
+                });
+                waitsFor(function () {
+                    return callback.callCount > 0;
+                });
+                runs(function () {
+                    expect(callback).toHaveBeenCalledWith(null, { "a": 1, "b": "two" });
+                });
+            });
+            it("should retain the type of an array value", function () {
+                var callback;
+                callback = jasmine.createSpy();
+                TCGA.data.set("test", [1, "two"], function (err) {
+                    TCGA.data.get("test", callback);
+                });
+                waitsFor(function () {
+                    return callback.callCount > 0;
+                });
+                runs(function () {
+                    expect(callback).toHaveBeenCalledWith(null, [1, "two"]);
+                });
+            });
+        });
+        describe("get", function () {
+            it("should fail if the key doesn't exist", function () {
+                var callback;
+                callback = jasmine.createSpy();
+                TCGA.data.get("hurz", callback);
+                waitsFor(function () {
+                    return callback.callCount > 0;
+                });
+                runs(function () {
+                    expect(callback).toHaveBeenCalledWith(new Error("Not Found"));
+                });
+            });
+        });
+        describe("del", function () {
+            it("should fail if the key doesn't exist", function () {
+                var callback;
+                callback = jasmine.createSpy();
+                TCGA.data.del("hurz", callback);
+                waitsFor(function () {
+                    return callback.callCount > 0;
+                });
+                runs(function () {
+                    expect(callback).toHaveBeenCalledWith(new Error("Not Found"));
+                });
+            });
+        });
+        describe("keys", function () {
+            it("should return an empty list if there are no keys", function () {
+                var callback;
+                callback = jasmine.createSpy();
+                TCGA.data.keys(callback);
+                waitsFor(function () {
+                    return callback.callCount > 0;
+                });
+                runs(function () {
+                    expect(callback).toHaveBeenCalledWith(null, []);
+                });
+            });
+            it("should return a list of all keys", function () {
+                var callback;
+                callback = jasmine.createSpy();
+                TCGA.data.set("one", 1, function (err) {
+                    TCGA.data.set("two", 2, function (err) {
+                        TCGA.data.keys(function (err, keys) {
+                            callback(keys.sort());
+                        });
+                    });
+                });
+                waitsFor(function () {
+                    return callback.callCount > 0;
+                });
+                runs(function () {
+                 // Ouch: This is probably a bad test.
+                    expect(callback).toHaveBeenCalledWith(["one", "two"]);
+                });
+            });
+        });
+        describe("exists", function () {
+            it("should return true if the key exists", function () {
+                var callback;
+                callback = jasmine.createSpy();
+                TCGA.data.set("exists", "lorem ipsum", function (err) {
+                    TCGA.data.exists("exists", callback);
+                });
+                waitsFor(function () {
+                    return callback.callCount > 0;
+                });
+                runs(function () {
+                    expect(callback).toHaveBeenCalledWith(null, true);
+                });
+            });
+            it("should return false if the key doesn't exist", function () {
+                var callback;
+                callback = jasmine.createSpy();
+                TCGA.data.exists("does-not-exist", callback);
+                waitsFor(function () {
+                    return callback.callCount > 0;
+                });
+                runs(function () {
+                    expect(callback).toHaveBeenCalledWith(null, false);
+                });
+            });
+        });
+    });
 });
