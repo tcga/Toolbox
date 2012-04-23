@@ -74,24 +74,28 @@
                 <p>
                     <code>TCGA.getRange(url, startByte, endByte, callback)</code>
                 </p>
-                <h3>Store data</h3>
+                <h3>Store data temporarily</h3>
                 <p>
-                    <code>TCGA.data.set(key, value, callback)</code>
+                    <code>TCGA.data</code>
+                </p>
+                <h3>Store data permanently</h3>
+                <p>
+                    <code>TCGA.store.set(key, value, callback)</code>
                 </p>
                 <p>
-                    <code>TCGA.data.get(key, callback)</code>
+                    <code>TCGA.store.get(key, callback)</code>
                 </p>
                 <p>
-                    <code>TCGA.data.del(key, callback)</code>
+                    <code>TCGA.store.del(key, callback)</code>
                 </p>
                 <p>
-                    <code>TCGA.data.exists(key, callback)</code>
+                    <code>TCGA.store.exists(key, callback)</code>
                 </p>
                 <p>
-                    <code>TCGA.data.keys(callback)</code>
+                    <code>TCGA.store.keys(callback)</code>
                 </p>
                 <p>
-                    <code>TCGA.data.clear(callback)</code>
+                    <code>TCGA.store.clear(callback)</code>
                 </p>
                 <h2>For script authors</h2>
                 <h3>Register tab in main menu</h3>

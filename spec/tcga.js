@@ -88,14 +88,14 @@ describe("TCGA", function () {
     describe("data", function () {
         beforeEach(function () {
          // TODO: Fix race condition.
-            TCGA.data.clear(function () {});
+            TCGA.store.clear(function () {});
         });
         describe("set", function () {
             it("should persist a key", function () {
                 var callback;
                 callback = jasmine.createSpy();
-                TCGA.data.set("test", "test", function (err) {
-                    TCGA.data.exists("test", callback);
+                TCGA.store.set("test", "test", function (err) {
+                    TCGA.store.exists("test", callback);
                 });
                 waitsFor(function () {
                     return callback.callCount > 0;
@@ -107,8 +107,8 @@ describe("TCGA", function () {
             it("should retain the type of a string value", function () {
                 var callback;
                 callback = jasmine.createSpy();
-                TCGA.data.set("test", "This is a string.", function (err) {
-                    TCGA.data.get("test", callback);
+                TCGA.store.set("test", "This is a string.", function (err) {
+                    TCGA.store.get("test", callback);
                 });
                 waitsFor(function () {
                     return callback.callCount > 0;
@@ -120,8 +120,8 @@ describe("TCGA", function () {
             it("should retain the type of a number value", function () {
                 var callback;
                 callback = jasmine.createSpy();
-                TCGA.data.set("test", 4311, function (err) {
-                    TCGA.data.get("test", callback);
+                TCGA.store.set("test", 4311, function (err) {
+                    TCGA.store.get("test", callback);
                 });
                 waitsFor(function () {
                     return callback.callCount > 0;
@@ -133,8 +133,8 @@ describe("TCGA", function () {
             it("should retain the type of an object value", function () {
                 var callback;
                 callback = jasmine.createSpy();
-                TCGA.data.set("test", {"a": 1, "b": "two"}, function (err) {
-                    TCGA.data.get("test", callback);
+                TCGA.store.set("test", {"a": 1, "b": "two"}, function (err) {
+                    TCGA.store.get("test", callback);
                 });
                 waitsFor(function () {
                     return callback.callCount > 0;
@@ -146,8 +146,8 @@ describe("TCGA", function () {
             it("should retain the type of an array value", function () {
                 var callback;
                 callback = jasmine.createSpy();
-                TCGA.data.set("test", [1, "two"], function (err) {
-                    TCGA.data.get("test", callback);
+                TCGA.store.set("test", [1, "two"], function (err) {
+                    TCGA.store.get("test", callback);
                 });
                 waitsFor(function () {
                     return callback.callCount > 0;
@@ -161,7 +161,7 @@ describe("TCGA", function () {
             it("should fail if the key doesn't exist", function () {
                 var callback;
                 callback = jasmine.createSpy();
-                TCGA.data.get("hurz", callback);
+                TCGA.store.get("hurz", callback);
                 waitsFor(function () {
                     return callback.callCount > 0;
                 });
@@ -174,7 +174,7 @@ describe("TCGA", function () {
             it("should fail if the key doesn't exist", function () {
                 var callback;
                 callback = jasmine.createSpy();
-                TCGA.data.del("hurz", callback);
+                TCGA.store.del("hurz", callback);
                 waitsFor(function () {
                     return callback.callCount > 0;
                 });
@@ -187,7 +187,7 @@ describe("TCGA", function () {
             it("should return an empty list if there are no keys", function () {
                 var callback;
                 callback = jasmine.createSpy();
-                TCGA.data.keys(callback);
+                TCGA.store.keys(callback);
                 waitsFor(function () {
                     return callback.callCount > 0;
                 });
@@ -198,9 +198,9 @@ describe("TCGA", function () {
             it("should return a list of all keys", function () {
                 var callback;
                 callback = jasmine.createSpy();
-                TCGA.data.set("one", 1, function (err) {
-                    TCGA.data.set("two", 2, function (err) {
-                        TCGA.data.keys(function (err, keys) {
+                TCGA.store.set("one", 1, function (err) {
+                    TCGA.store.set("two", 2, function (err) {
+                        TCGA.store.keys(function (err, keys) {
                             callback(keys.sort());
                         });
                     });
@@ -218,8 +218,8 @@ describe("TCGA", function () {
             it("should return true if the key exists", function () {
                 var callback;
                 callback = jasmine.createSpy();
-                TCGA.data.set("exists", "lorem ipsum", function (err) {
-                    TCGA.data.exists("exists", callback);
+                TCGA.store.set("exists", "lorem ipsum", function (err) {
+                    TCGA.store.exists("exists", callback);
                 });
                 waitsFor(function () {
                     return callback.callCount > 0;
@@ -231,7 +231,7 @@ describe("TCGA", function () {
             it("should return false if the key doesn't exist", function () {
                 var callback;
                 callback = jasmine.createSpy();
-                TCGA.data.exists("does-not-exist", callback);
+                TCGA.store.exists("does-not-exist", callback);
                 waitsFor(function () {
                     return callback.callCount > 0;
                 });
