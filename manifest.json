@@ -9,7 +9,6 @@
     },
     "permissions": [
         "https://tcga-data.nci.nih.gov/tcgafiles/ftp_auth/distro_ftpusers/anonymous/tumor/*",
-        "http://agalpha.mathbiol.org:10035/repositories/tcga?query=*",
         "unlimitedStorage"
     ],
     "icons": {
