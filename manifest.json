@@ -8,6 +8,7 @@
         }
     },
     "permissions": [
+        "http://tcga-data.nci.nih.gov/",
         "https://tcga-data.nci.nih.gov/",
         "unlimitedStorage"
     ],
