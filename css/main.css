@@ -19,3 +19,7 @@ body {
 #list-module-loader #modules {
     width: 556px;
 }
+
+#loaded-modules ul {
+    display: none;
+}
