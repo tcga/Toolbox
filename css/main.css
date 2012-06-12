@@ -20,6 +20,6 @@ body {
     width: 556px;
 }
 
-#loaded-modules ul {
+#registered-modules ul {
     display: none;
 }
