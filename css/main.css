@@ -23,3 +23,7 @@ body {
 #registered-modules ul {
     display: none;
 }
+
+#share-modules input[type='submit'] {
+    width: 98px;
+}
