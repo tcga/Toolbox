@@ -13,6 +13,7 @@
         "https://tcga-data.nci.nih.gov/",
         "unlimitedStorage"
     ],
+    "content_security_policy": "script-src 'self' https://; object-src 'self'",
     "icons": {
         "128": "icon_128.png",
         "16": "icon_16.png"
