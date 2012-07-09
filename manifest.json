@@ -12,6 +12,9 @@
         "*://tcga-data.nci.nih.gov/",
         "unlimitedStorage"
     ],
+    "optional_permissions": [
+        "http://beta.sparql.uniprot.org/"
+    ],
     "content_security_policy": "script-src 'self' https://; object-src 'self'",
     "web_accessible_resources": [
         "img/installed.png"
