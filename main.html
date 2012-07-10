@@ -121,6 +121,13 @@
                             </td>
                         </tr>
                         <tr>
+                            <td><code>TCGA.get.sparql(url, callback)</code></td>
+                            <td>
+                                Same as <code>TCGA.get</code>, but parses the SPARQL query results in the <a href="http://www.w3.org/TR/sparql11-results-json/">SPARQL 1.1 Query Results JSON Format</a> to JSON.<br />
+                                <code>url</code> is a string representing a valid URL, <code>callback</code> a function with two parameters, the error object and an object representing the SPARQL query results as JSON.
+                            </td>
+                        </tr>
+                        <tr>
                             <td><code>TCGA.get.range(url, startByte, endByte, callback)</code></td>
                             <td>
                                 Same as <code>TCGA.get</code>, but downloads only a subset of the file within the specified byte range.<br />
