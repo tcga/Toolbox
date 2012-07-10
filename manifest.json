@@ -17,6 +17,7 @@
     ],
     "content_security_policy": "script-src 'self' https://*.github.com https://*.googlecode.com https://*.dropbox.com https://ssl.google-analytics.com; object-src 'self'",
     "web_accessible_resources": [
+        "main.html",
         "img/installed.png"
     ],
     "icons": {
