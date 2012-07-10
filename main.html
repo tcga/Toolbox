@@ -63,7 +63,7 @@
                     <h1>Documentation</h1>
                 </div>
                 <p>Everything in the TCGA Toolbox is scoped under the global <code>TCGA</code> namespace.</p>
-                <p>Unless stated otherwise, the first argument of a callback function is reserved for an error object, a useful convention to allow error catching in asynchronous programming. If the error object is <code>null</code> no error occurred.</p>
+                <p>Unless stated otherwise, the first argument of a callback function is reserved for an error object, a useful convention to allow error catching in asynchronous programming. If an error object is <code>null</code> no error occurred.</p>
                 <h2>Load scripts</h2>
                 <table class="table table-bordered table-striped">
                     <tbody>
@@ -71,14 +71,14 @@
                             <td class="span5"><code>TCGA.loadScript(url, callback)</code></td>
                             <td>
                                 Loads one or more scripts using HTML script elements.<br />
-                                <code>url</code> is a string or a string array of valid URLs, <code>callback</code> a function with two parameters, the error object and a string array of loaded scripts.
+                                <code>url</code> is a string or a string array of URLs, <code>callback</code> a function with two parameters, an error object and a string array of loaded scripts.
                             </td>
                         </tr>
                         <tr>
                             <td><code>TCGA.modules(callback)</code></td>
                             <td>
                                 Returns a list of loaded modules.<br />
-                                <code>callback</code> is a function with two parameters, the error object and a string array of loaded modules.
+                                <code>callback</code> is a function with two parameters, an error object and a string array of loaded modules.
                             </td>
                         </tr>
                     </tbody>
@@ -90,7 +90,7 @@
                             <td class="span5"><code>TCGA.find(query, callback)</code></td>
                             <td>
                                 Queries the TCGA RDF file index.<br />
-                                <code>query</code> is a string representing a SPARQL query, <code>callback</code> a function with two parameters, the error object and an object representing the SPARQL query results in the <a href="http://www.w3.org/TR/sparql11-results-json/">SPARQL 1.1 Query Results JSON Format</a>.
+                                <code>query</code> is a SPARQL query string, <code>callback</code> a function with two parameters, an error object and an object representing the SPARQL query results in the <a href="http://www.w3.org/TR/sparql11-results-json/">SPARQL 1.1 Query Results JSON Format</a>.
                             </td>
                         </tr>
                     </tbody>
@@ -102,42 +102,42 @@
                             <td class="span5"><code>TCGA.get(url, callback)</code></td>
                             <td>
                                 Downloads the contents of a file from TCGA's open-access HTTP directory or any <a href="http://www.w3.org/TR/cors/">CORS</a>-enabled service.<br />
-                                <code>url</code> is a string representing a valid URL, <code>callback</code> a function with two parameters, the error object and a string representing the contents of the requested file.
+                                <code>url</code> is a URL string, <code>callback</code> a function with two parameters, an error object and a string representing the contents of the requested file.
                             </td>
                         </tr>
                         <tr>
                             <td><code>TCGA.get.json(url, callback)</code></td>
                             <td>
-                                Same as <code>TCGA.get</code>, but parses the result to JSON.<br />
-                                <code>url</code> is a string representing a valid URL, <code>callback</code> a function with two parameters, the error object and an object representing the contents of the requested file as JSON.
+                                Same as <code>TCGA.get</code>, but parses the downloaded file to JSON.<br />
+                                <code>url</code> is a URL string, <code>callback</code> a function with two parameters, an error object and an object representing the contents of the requested file as JSON.
                             </td>
                         </tr>
                         <tr>
                             <td><code>TCGA.get.xml(url, callback)</code></td>
                             <td>
-                                Same as <code>TCGA.get</code>, but parses the result to XML.<br />
-                                <code>url</code> is a string representing a valid URL, <code>callback</code> a function with two parameters, the error object and an object representing the contents of the requested file as XML.
+                                Same as <code>TCGA.get</code>, but parses the downloaded file to XML.<br />
+                                <code>url</code> is a URL string, <code>callback</code> a function with two parameters, an error object and an object representing the contents of the requested file as XML.
                             </td>
                         </tr>
                         <tr>
                             <td><code>TCGA.get.sparql(url, callback)</code></td>
                             <td>
-                                Same as <code>TCGA.get</code>, but parses the SPARQL query results in the <a href="http://www.w3.org/TR/sparql11-results-json/">SPARQL 1.1 Query Results JSON Format</a> to JSON.<br />
-                                <code>url</code> is a string representing a valid URL, <code>callback</code> a function with two parameters, the error object and an object representing the SPARQL query results as JSON.
+                                Same as <code>TCGA.get</code>, but parses the downloaded file to the <a href="http://www.w3.org/TR/sparql11-results-json/">SPARQL 1.1 Query Results JSON Format</a>.<br />
+                                <code>url</code> is a URL string, <code>callback</code> a function with two parameters, an error object and an object representing the SPARQL query results as JSON.
                             </td>
                         </tr>
                         <tr>
                             <td><code>TCGA.get.range(url, startByte, endByte, callback)</code></td>
                             <td>
                                 Same as <code>TCGA.get</code>, but downloads only a subset of the file within the specified byte range.<br />
-                                <code>url</code> is a string representing a valid URL, <code>startByte</code> and <code>endByte</code> the integer range of bytes to download, and <code>callback</code> a function with two parameters, the error object and a string representing the partial contents of the requested file.
+                                <code>url</code> is a URL string, <code>startByte</code> and <code>endByte</code> the integer range of bytes to download, and <code>callback</code> a function with two parameters, an error object and a string representing the partial contents of the requested file.
                             </td>
                         </tr>
                         <tr>
                             <td><code>TCGA.get.archive(url, callback)</code></td>
                             <td>
-                                Downloads an archive from the TCGA open-access HTTP directory or <a href="http://www.w3.org/TR/cors/">CORS</a>-enabled services.<br />
-                                <code>url</code> is a string representing a valid URL, <code>callback</code> a function with two parameters, the error object and an object representing the contents of the requested archive.
+                                Same as <code>TCGA.get</code>, but extracts the downloaded gzipped archive.<br />
+                                <code>url</code> is a URL string, <code>callback</code> a function with two parameters, an error object and an object representing the contents of the requested archive.
                             </td>
                         </tr>
                     </tbody>
@@ -151,49 +151,49 @@
                         </tr>
                     </tbody>
                 </table>
-                <h2>Store data permanently (don't delete your browsing history)</h2>
+                <h2>Store data permanently (unless you delete your browsing history)</h2>
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
                             <td class="span5"><code>TCGA.store.set(key, value, callback)</code></td>
                             <td>
                                 Adds a key-value pair to the store.<br />
-                                <code>key</code> is a string representing the key, <code>value</code> any type representing the value, and <code>callback</code> a function with one parameter, the error object.
+                                <code>key</code> is a string representing the key, <code>value</code> any type representing the value, and <code>callback</code> a function with one parameter, an error object.
                             </td>
                         </tr>
                         <tr>
                             <td><code>TCGA.store.get(key, callback)</code></td>
                             <td>
                                 Retrieves a key-value pair from the store.<br />
-                                <code>key</code> is a string representing the key, <code>callback</code> a function with two parameters, the error object and any type representing the value.
+                                <code>key</code> is a string representing the key, <code>callback</code> a function with two parameters, an error object and any type representing the value.
                             </td>
                         </tr>
                         <tr>
                             <td><code>TCGA.store.del(key, callback)</code></td>
                             <td>
                                 Removes a key-value pair from the store.<br />
-                                <code>key</code> is a string representing the key, <code>callback</code> a function with one parameter, the error object.
+                                <code>key</code> is a string representing the key, <code>callback</code> a function with one parameter, an error object.
                             </td>
                         </tr>
                         <tr>
                             <td><code>TCGA.store.exists(key, callback)</code></td>
                             <td>
                                 Checks if a key-value pair with the specified key exists in the store.<br />
-                                <code>key</code> is a string representing the key, <code>callback</code> a function with two parameters, the error object and a boolean indicating if it is in the store or not.
+                                <code>key</code> is a string representing the key, <code>callback</code> a function with two parameters, an error object and a boolean indicating if it is in the store or not.
                             </td>
                         </tr>
                         <tr>
                             <td><code>TCGA.store.keys(callback)</code></td>
                             <td>
                                 Returns a list of all keys in the stores.<br />
-                                <code>callback</code> is a function with two parameters, the error object and a string array of keys.
+                                <code>callback</code> is a function with two parameters, an error object and a string array of keys.
                             </td>
                         </tr>
                         <tr>
                             <td><code>TCGA.store.clear(callback)</code></td>
                             <td>
                                 Removes all key-value pairs from the store.<br />
-                                <code>callback</code> is a function with one parameter, the error object.
+                                <code>callback</code> is a function with one parameter, an error object.
                             </td>
                         </tr>
                     </tbody>
