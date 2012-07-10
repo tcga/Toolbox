@@ -64,8 +64,7 @@
                 </div>
                 <p>Everything in the TCGA Toolbox is scoped under the global <code>TCGA</code> namespace.</p>
                 <p>Unless stated otherwise, the first argument of a callback function is reserved for an error object, a useful convention to allow error catching in asynchronous programming. If the error object is <code>null</code> no error occurred.</p>
-                <h2>For end users</h2>
-                <h3>Load scripts</h3>
+                <h2>Load scripts</h2>
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
@@ -84,7 +83,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <h3>Find data</h3>
+                <h2>Find data</h2>
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
@@ -96,7 +95,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <h3>Get data</h3>
+                <h2>Get data</h2>
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
@@ -143,7 +142,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <h3>Store data temporarily</h3>
+                <h2>Store data temporarily</h2>
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
@@ -152,7 +151,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <h3>Store data permanently (don't delete your browsing history)</h3>
+                <h2>Store data permanently (don't delete your browsing history)</h2>
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
@@ -199,12 +198,12 @@
                         </tr>
                     </tbody>
                 </table>
-                <h2>For script authors</h2>
+                <h2>User Interface</h2>
                 <h3>Register tab in main menu</h3>
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
-                            <td class="span5"><code>TCGA.registerTab(options)</code></td>
+                            <td class="span5"><code>TCGA.ui.registerTab(options)</code></td>
                             <td>
                                 Registers a tab in the menu bar of the TCGA Toolbox.<br />
                                 <code>options</code> is an object with the following properties: <code>id</code> is a string representing the ID of the tab (we recommend to name it after your module), <code>title</code> is a string representing the title of your module, and <code>switchTab</code> is a boolean indicating whether the TCGA Toolbox should immediately switch to your tab after it was created.
@@ -216,20 +215,20 @@
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
-                            <td class="span5"><code>TCGA.toast.info(message, duration)</code></td>
+                            <td class="span5"><code>TCGA.ui.toast.info(message, duration)</code></td>
                             <td>Displays an info notification with the specified string <code>message</code> for the specified <code>duration</code> in milliseconds.</td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.toast.success(message, duration)</code></td>
+                            <td><code>TCGA.ui.toast.success(message, duration)</code></td>
                             <td>Displays a success notification with the specified string <code>message</code> for the specified <code>duration</code> in milliseconds.</td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.toast.error(message, duration)</code></td>
+                            <td><code>TCGA.ui.toast.error(message, duration)</code></td>
                             <td>Displays an error notification with the specified string <code>message</code> for the specified <code>duration</code> in milliseconds.</td>
                         </tr>
                     </tbody>
                 </table>
-                <h3>Get version information</h3>
+                <h2>Get version information</h2>
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
