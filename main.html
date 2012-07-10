@@ -107,28 +107,28 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.getJSON(url, callback)</code></td>
+                            <td><code>TCGA.get.json(url, callback)</code></td>
                             <td>
                                 Same as <code>TCGA.get</code>, but parses the result to JSON.<br />
                                 <code>url</code> is a string representing a valid URL, <code>callback</code> a function with two parameters, the error object and an object representing the contents of the requested file as JSON.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.getXML(url, callback)</code></td>
+                            <td><code>TCGA.get.xml(url, callback)</code></td>
                             <td>
                                 Same as <code>TCGA.get</code>, but parses the result to XML.<br />
                                 <code>url</code> is a string representing a valid URL, <code>callback</code> a function with two parameters, the error object and an object representing the contents of the requested file as XML.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.getRange(url, startByte, endByte, callback)</code></td>
+                            <td><code>TCGA.get.range(url, startByte, endByte, callback)</code></td>
                             <td>
                                 Same as <code>TCGA.get</code>, but downloads only a subset of the file within the specified byte range.<br />
                                 <code>url</code> is a string representing a valid URL, <code>startByte</code> and <code>endByte</code> the integer range of bytes to download, and <code>callback</code> a function with two parameters, the error object and a string representing the partial contents of the requested file.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.getArchive(url, callback)</code></td>
+                            <td><code>TCGA.get.archive(url, callback)</code></td>
                             <td>
                                 Downloads an archive from the TCGA open-access HTTP directory or <a href="http://www.w3.org/TR/cors/">CORS</a>-enabled services.<br />
                                 <code>url</code> is a string representing a valid URL, <code>callback</code> a function with two parameters, the error object and an object representing the contents of the requested archive.
