@@ -30,7 +30,7 @@
                 <div class="page-header">
                     <h1>Modules</h1>
                 </div>
-                <p>TCGA Toolbox can be extended by loading remote scripts &ndash; either by specifying the URL or by selecting one from our trusted authors.</p>
+                <p>TCGA Toolbox can be extended by loading remote scripts&mdash;either by specifying the URL or by selecting one from our trusted authors.</p>
                 <h2>Load module by URL</h2>
                 <div>
                     <form id="url-module-loader" class="form-inline">
@@ -48,11 +48,11 @@
                 </div>
                 <h2>Loaded modules</h2>
                 <div id="registered-modules">
-                    <p>You have not loaded any modules yet. Why not <a id="promoted-module" href="https://raw.github.com/agrueneberg/TCGA/master/rppa/rppa.js">try RPPA</a>, an app for real time querying and plotting of level 3 reverse phase protein data for GBM?</p>
+                    <p>You have not loaded a module yet. Why not <a id="promoted-module" href="https://raw.github.com/agrueneberg/TCGA/master/rppa/rppa.js">try RPPA</a>, an app for real time querying and plotting of level 3 reverse phase protein data for GBM?</p>
                     <ul></ul>
                 </div>
                 <h2>Share your workflow</h2>
-                <p>The URL contains everything to get your research colleagues started.</p>
+                <p>Let other researchers reproduce your work by copying and sharing the following URL.</p>
                 <form id="share-modules" class="form-inline">
                     <input type="text" name="url" class="span10" readonly="readonly" />
                     <input type="submit" class="btn" value="Copy" />
@@ -62,7 +62,7 @@
                 <div class="page-header">
                     <h1>Documentation</h1>
                 </div>
-                <p>Everything in the TCGA Toolbox is scoped under the global <code>TCGA</code> namespace.</p>
+                <p>TCGA Toolbox provides some useful functions scoped in the global <code>TCGA</code> namespace to interact with <a href="http://cancergenome.nih.gov/">TCGA</a>.</p>
                 <p>Unless stated otherwise, the first argument of a callback function is reserved for an error object, a useful convention to allow error catching in asynchronous programming. If an error object is <code>null</code> no error occurred.</p>
                 <h2>Load scripts</h2>
                 <table class="table table-bordered table-striped">
@@ -101,7 +101,7 @@
                         <tr>
                             <td class="span5"><code>TCGA.get(url, callback)</code></td>
                             <td>
-                                Downloads the contents of a file from TCGA's open-access HTTP directory or any <a href="http://www.w3.org/TR/cors/">CORS</a>-enabled service.<br />
+                                Downloads the contents of a file from <a href="https://tcga-data.nci.nih.gov/tcgafiles/ftp_auth/distro_ftpusers/anonymous/tumor/">TCGA's open-access HTTP directory</a> or any <a href="http://www.w3.org/TR/cors/">CORS</a>-enabled service.<br />
                                 <code>url</code> is a URL string, <code>callback</code> a function with two parameters, an error object and a string representing the contents of the requested file.
                             </td>
                         </tr>
