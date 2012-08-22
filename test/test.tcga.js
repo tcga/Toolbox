@@ -10,11 +10,6 @@ describe("TCGA", function () {
                 TCGA.loadScript(4711);
             }).to.throwException("Please provide a uri parameter (string or [string]).");
         });
-        it("should throw if 'callback' is not a function", function () {
-            expect(function () {
-                TCGA.loadScript("http://tcga.github.com", 4711);
-            }).to.throwException("Please provide a callback parameter (function).");
-        });
         it("should fail if the given URI is invalid", function (done) {
             TCGA.loadScript("ptth://asdf", function (err, loadedScripts) {
                 expect(err).to.eql({
