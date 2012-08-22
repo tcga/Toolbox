@@ -63,10 +63,7 @@ describe("TCGA", function () {
         });
         it("should fail if the given URI points to TCGA, but cannot be found", function (done) {
             TCGA.get("https://tcga-data.nci.nih.gov/tcgafiles/ftp_auth/distro_ftpusers/anonymous/tumor/mostCertainlyA404!", function (err, res) {
-                expect(err).to.eql({
-                    name: "Error",
-                    message: "Status Code: 404"
-                });
+                expect(err).to.not.eql(null);
                 expect(res).to.equal(null);
                 done();
             });
