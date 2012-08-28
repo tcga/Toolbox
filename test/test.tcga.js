@@ -80,6 +80,17 @@ describe("TCGA", function () {
                     });
                 });
             });
+            it("should overwrite an existing key", function (done) {
+                TCGA.store.set("test", "original", function (err) {
+                    TCGA.store.set("test", "new", function (err) {
+                        TCGA.store.get("test", function (err, res) {
+                            expect(err).to.equal(null);
+                            expect(res).to.equal("new");
+                            done();
+                        });
+                    });
+                });
+            });
             it("should retain the type of a string value", function (done) {
                 TCGA.store.set("test", "This is a string.", function (err) {
                     TCGA.store.get("test", function (err, res) {
