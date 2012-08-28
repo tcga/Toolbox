@@ -65,9 +65,10 @@ describe("TCGA", function () {
         });
     });
     describe("data", function () {
-        beforeEach(function () {
-         // TODO: Fix race condition.
-            TCGA.store.clear(function () {});
+        beforeEach(function (done) {
+            TCGA.store.clear(function (err) {
+                done();
+            });
         });
         describe("set", function () {
             it("should persist a key", function (done) {
@@ -129,7 +130,7 @@ describe("TCGA", function () {
         });
         describe("del", function () {
             it("should fail if the key doesn't exist", function (done) {
-                TCGA.store.del("hurz", function (err, res) {
+                TCGA.store.del("hurz", function (err) {
                     expect(err).to.eql(new Error("Not Found"));
                     done();
                 });
