@@ -1,0 +1,13 @@
+table.table thead .sort,
+table.table thead .sort-asc,
+table.table thead .sort-desc,
+table.table thead .sort-asc-disabled,
+table.table thead .sort-desc-disabled {
+    cursor: pointer;
+    *cursor: hand;
+    -webkit-user-select: none;
+}
+
+table.table thead .sort { background: url('../img/sort-both.png') no-repeat center right; }
+table.table thead .sort-asc { background: url('../img/sort-asc.png') no-repeat center right; }
+table.table thead .sort-desc { background: url('../img/sort-desc.png') no-repeat center right; }
