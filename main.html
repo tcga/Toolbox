@@ -35,7 +35,7 @@
                 <h2>Load module by URL</h2>
                 <div>
                     <form id="url-module-loader" class="form-inline">
-                        <input type="text" class="span10" placeholder="URL of a module hosted on GitHub or Google Code" />
+                        <input type="text" class="span10" placeholder="URL of a module" />
                         <button class="btn" data-loading-text="Loading...">Load module</button>
                     </form>
                 </div>
@@ -71,7 +71,7 @@
                         <tr>
                             <td class="span5"><code>TCGA.loadScript(url, callback)</code></td>
                             <td>
-                                Loads one or more scripts over HTTP<strong>S</strong> from <a href="https://github.com" target="_blank">GitHub</a> or <a href="https://code.google.com" target="_blank">Google Code</a> (or <a href="https://www.dropbox.com" target="_blank">Dropbox</a> while in development) using HTML script elements.<br />
+                                Loads one or more scripts over HTTPS <strong>(HTTP is not supported)</strong> using HTML script elements.<br />
                                 <code>url</code> is a string or a string array of URLs, <code>callback</code> a function with two parameters, an error object and a string array of loaded scripts.
                             </td>
                         </tr>
