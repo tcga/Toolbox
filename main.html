@@ -216,10 +216,11 @@
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
-                            <td class="span5"><code>TCGA.ui.registerTab(options)</code></td>
+                            <td class="span5"><code>TCGA.ui.registerTab(options, callback)</code></td>
                             <td>
                                 Registers a tab in the menu bar of the TCGA Toolbox.<br />
-                                <code>options</code> is an object with the following properties: <code>id</code> is a string representing the ID of the tab (we recommend to name it after your module), <code>title</code> is a string representing the title of your module, and <code>switchTab</code> is a boolean indicating whether the TCGA Toolbox should immediately switch to your tab after it was created.
+                                <code>options</code> is an object with the following properties: <code>id</code> is a string representing the ID of the tab (we recommend to name it after your module), <code>title</code> is a string representing the title of your module, <code>content</code> is the HTML fragment describing the tab pane, and <code>switchTab</code> is a boolean indicating whether the TCGA Toolbox should immediately switch to your tab after it was created.<br />
+                                <code>callback</code> is a function with two parameters, an error object and the DOM element of the created tab pane.
                             </td>
                         </tr>
                     </tbody>
