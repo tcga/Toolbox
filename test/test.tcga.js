@@ -66,14 +66,14 @@ describe("TCGA", function () {
     });
     describe("data", function () {
         beforeEach(function (done) {
-            TCGA.store.clear(function (err) {
+            TCGA.data.clear(function (err) {
                 done();
             });
         });
         describe("set", function () {
             it("should persist a key", function (done) {
-                TCGA.store.set("test", "test", function (err) {
-                    TCGA.store.exists("test", function (err, res) {
+                TCGA.data.set("test", "test", function (err) {
+                    TCGA.data.exists("test", function (err, res) {
                         expect(err).to.equal(null);
                         expect(res).to.equal(true);
                         done();
@@ -81,9 +81,9 @@ describe("TCGA", function () {
                 });
             });
             it("should overwrite an existing key", function (done) {
-                TCGA.store.set("test", "original", function (err) {
-                    TCGA.store.set("test", "new", function (err) {
-                        TCGA.store.get("test", function (err, res) {
+                TCGA.data.set("test", "original", function (err) {
+                    TCGA.data.set("test", "new", function (err) {
+                        TCGA.data.get("test", function (err, res) {
                             expect(err).to.equal(null);
                             expect(res).to.equal("new");
                             done();
@@ -92,8 +92,8 @@ describe("TCGA", function () {
                 });
             });
             it("should retain the type of a string value", function (done) {
-                TCGA.store.set("test", "This is a string.", function (err) {
-                    TCGA.store.get("test", function (err, res) {
+                TCGA.data.set("test", "This is a string.", function (err) {
+                    TCGA.data.get("test", function (err, res) {
                         expect(err).to.equal(null);
                         expect(res).to.equal("This is a string.");
                         done();
@@ -101,8 +101,8 @@ describe("TCGA", function () {
                 });
             });
             it("should retain the type of a number value", function (done) {
-                TCGA.store.set("test", 4311, function (err) {
-                    TCGA.store.get("test", function (err, res) {
+                TCGA.data.set("test", 4311, function (err) {
+                    TCGA.data.get("test", function (err, res) {
                         expect(err).to.equal(null);
                         expect(res).to.equal(4311);
                         done();
@@ -110,8 +110,8 @@ describe("TCGA", function () {
                 });
             });
             it("should retain the type of an object value", function (done) {
-                TCGA.store.set("test", {"a": 1, "b": "two"}, function (err) {
-                    TCGA.store.get("test", function (err, res) {
+                TCGA.data.set("test", {"a": 1, "b": "two"}, function (err) {
+                    TCGA.data.get("test", function (err, res) {
                         expect(err).to.equal(null);
                         expect(res).to.eql({
                             "a": 1,
@@ -122,8 +122,8 @@ describe("TCGA", function () {
                 });
             });
             it("should retain the type of an array value", function (done) {
-                TCGA.store.set("test", [1, "two"], function (err) {
-                    TCGA.store.get("test", function (err, res) {
+                TCGA.data.set("test", [1, "two"], function (err) {
+                    TCGA.data.get("test", function (err, res) {
                         expect(err).to.equal(null);
                         expect(res).to.eql([1, "two"]);
                         done();
@@ -133,7 +133,7 @@ describe("TCGA", function () {
         });
         describe("get", function () {
             it("should fail if the key doesn't exist", function (done) {
-                TCGA.store.get("hurz", function (err, res) {
+                TCGA.data.get("hurz", function (err, res) {
                     expect(err).to.eql(new Error("Not Found"));
                     done();
                 });
@@ -141,7 +141,7 @@ describe("TCGA", function () {
         });
         describe("del", function () {
             it("should fail if the key doesn't exist", function (done) {
-                TCGA.store.del("hurz", function (err) {
+                TCGA.data.del("hurz", function (err) {
                     expect(err).to.eql(new Error("Not Found"));
                     done();
                 });
@@ -149,16 +149,16 @@ describe("TCGA", function () {
         });
         describe("keys", function () {
             it("should return an empty list if there are no keys", function (done) {
-                TCGA.store.keys(function (err, res) {
+                TCGA.data.keys(function (err, res) {
                     expect(err).to.equal(null);
                     expect(res).to.eql([]);
                     done();
                 });
             });
             it("should return a list of all keys", function (done) {
-                TCGA.store.set("one", 1, function (err) {
-                    TCGA.store.set("two", 2, function (err) {
-                        TCGA.store.keys(function (err, keys) {
+                TCGA.data.set("one", 1, function (err) {
+                    TCGA.data.set("two", 2, function (err) {
+                        TCGA.data.keys(function (err, keys) {
                             expect(keys.sort()).to.eql(["one", "two"]);
                             done();
                         });
@@ -168,8 +168,8 @@ describe("TCGA", function () {
         });
         describe("exists", function () {
             it("should return true if the key exists", function (done) {
-                TCGA.store.set("exists", "lorem ipsum", function (err) {
-                    TCGA.store.exists("exists", function (err, res) {
+                TCGA.data.set("exists", "lorem ipsum", function (err) {
+                    TCGA.data.exists("exists", function (err, res) {
                         expect(err).to.equal(null);
                         expect(res).to.equal(true);
                         done();
@@ -177,7 +177,7 @@ describe("TCGA", function () {
                 });
             });
             it("should return false if the key doesn't exist", function (done) {
-                TCGA.store.exists("does-not-exist", function (err, res) {
+                TCGA.data.exists("does-not-exist", function (err, res) {
                     expect(err).to.equal(null);
                     expect(res).to.equal(false);
                     done();

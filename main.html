@@ -147,42 +147,42 @@
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
-                            <td class="span5"><code>TCGA.store.set(key, value, callback)</code></td>
+                            <td class="span5"><code>TCGA.data.set(key, value, callback)</code></td>
                             <td>
                                 Adds a key-value pair to the store.<br />
                                 <code>key</code> is a string representing the key, <code>value</code> any type representing the value, and <code>callback</code> a function with one parameter, an error object.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.store.get(key, callback)</code></td>
+                            <td><code>TCGA.data.get(key, callback)</code></td>
                             <td>
                                 Retrieves a key-value pair from the store.<br />
                                 <code>key</code> is a string representing the key, <code>callback</code> a function with two parameters, an error object and any type representing the value.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.store.del(key, callback)</code></td>
+                            <td><code>TCGA.data.del(key, callback)</code></td>
                             <td>
-                                Removes a key-value pair from the store.<br />
+                                Removes a key-value pair from the data.<br />
                                 <code>key</code> is a string representing the key, <code>callback</code> a function with one parameter, an error object.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.store.exists(key, callback)</code></td>
+                            <td><code>TCGA.data.exists(key, callback)</code></td>
                             <td>
                                 Checks if a key-value pair with the specified key exists in the store.<br />
                                 <code>key</code> is a string representing the key, <code>callback</code> a function with two parameters, an error object and a boolean indicating if it is in the store or not.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.store.keys(callback)</code></td>
+                            <td><code>TCGA.data.keys(callback)</code></td>
                             <td>
                                 Returns a list of all keys in the stores.<br />
                                 <code>callback</code> is a function with two parameters, an error object and a string array of keys.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.store.clear(callback)</code></td>
+                            <td><code>TCGA.data.clear(callback)</code></td>
                             <td>
                                 Removes all key-value pairs from the store.<br />
                                 <code>callback</code> is a function with one parameter, an error object.
