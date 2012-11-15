@@ -143,16 +143,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <h2>Store data temporarily</h2>
-                <table class="table table-bordered table-striped">
-                    <tbody>
-                        <tr>
-                            <td class="span5"><code>TCGA.data</code></td>
-                            <td>We are trying to establish a convention that modules should put data that they want to share with other modules in a place where they can find them. <code>TCGA.data</code> is the simplest solution for that problem: it is a regular JavaScript object in the TCGA namespace. Be aware of the consequences when working with it: you will work with references rather than copies unless you copy the data yourself, e.g. <code>JSON.parse(JSON.stringify(TCGA.data["data-from-some-other-module"]))</code>.</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h2>Store data permanently (unless you delete your browsing history)</h2>
+                <h2>Store data</h2>
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
