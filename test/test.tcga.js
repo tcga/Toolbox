@@ -71,6 +71,11 @@ describe("TCGA", function () {
             });
         });
         describe("set", function () {
+            it("should not throw if no callback function was provided", function () {
+                expect(function () {
+                    TCGA.data.set("test", "test");
+                }).to.not.throwException();
+            });
             it("should persist a key", function (done) {
                 TCGA.data.set("test", "test", function (err) {
                     TCGA.data.exists("test", function (err, res) {
@@ -140,6 +145,11 @@ describe("TCGA", function () {
             });
         });
         describe("del", function () {
+            it("should not throw if no callback function was provided", function () {
+                expect(function () {
+                    TCGA.data.del("test");
+                }).to.not.throwException();
+            });
             it("should fail if the key doesn't exist", function (done) {
                 TCGA.data.del("hurz", function (err) {
                     expect(err).to.eql(new Error("Not Found"));
@@ -182,6 +192,13 @@ describe("TCGA", function () {
                     expect(res).to.equal(false);
                     done();
                 });
+            });
+        });
+        describe("clear", function () {
+            it("should not throw if no callback function was provided", function () {
+                expect(function () {
+                    TCGA.data.clear();
+                }).to.not.throwException();
             });
         });
     });
