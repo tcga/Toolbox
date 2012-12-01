@@ -141,6 +141,20 @@
                                 <code>url</code> is a URL string, <code>callback</code> a function with two parameters, an error object and an object representing the contents of the requested archive.
                             </td>
                         </tr>
+                        <tr>
+                            <td><code>TCGA.get.barcodes(uuids, callback)</code></td>
+                            <td>
+                                Maps UUIDs to barcodes using the <a href="https://wiki.nci.nih.gov/display/TCGA/TCGA+Barcode+to+UUID+Web+Service+User's+Guide">TCGA Barcode to UUID Web Service</a>.<br />
+                                <code>uuids</code> is an array of UUIDs, <code>callback</code> a function with two parameters, an error object and an object representing the mapping.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>TCGA.get.uuids(barcodes, callback)</code></td>
+                            <td>
+                                Maps barcodes to UUIDs using the <a href="https://wiki.nci.nih.gov/display/TCGA/TCGA+Barcode+to+UUID+Web+Service+User's+Guide">TCGA Barcode to UUID Web Service</a>.<br />
+                                <code>barcodes</code> is an array of barcodes, <code>callback</code> a function with two parameters, an error object and an object representing the mapping.
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
                 <h2>Store data</h2>
