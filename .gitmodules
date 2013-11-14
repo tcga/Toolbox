@@ -1,0 +1,3 @@
+[submodule "lib/ganglion"]
+	path = lib/ganglion
+	url = https://github.com/agrueneberg/Ganglion.git
